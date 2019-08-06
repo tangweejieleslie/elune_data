@@ -1,0 +1,86 @@
+[
+    {
+        "name": "Arslan",
+        "grade": "Legendary",
+        "class": "DPS",
+        "stats":[
+            {
+                "id": 5050, // Level.Grade.Ascend
+                "level": 50,
+                "grade": 5,
+                "ascend": 0,
+                "hp": 14257,
+                "atk": 3614,
+                "pdef": 1844,
+                "mdef": 1844,
+                "atkspd": 106,
+                "acc": 0,
+                "eva": 11,
+                "crt": 84,
+                "crtpow": 0
+            },
+            {
+                "id": 6060, // Level.Grade.Ascend
+                "level": 60,
+                "grade": 6,
+                "ascend": 0,
+                "hp": 23597,
+                "atk": 5982,
+                "pdef": 3053,
+                "mdef": 3053,
+                "atkspd": 106,
+                "acc": 0,
+                "eva": 11,
+                "crt": 84,
+                "crtpow": 0
+            },
+            {
+                "id": 6061, // Level.Grade.Ascend
+                "level": 60,
+                "grade": 6,
+                "ascend": 1,
+                "hp": 25957,
+                "atk": 6580,
+                "pdef": 3358,
+                "mdef": 3358,
+                "atkspd": 106,
+                "acc": 0,
+                "eva": 11,
+                "crt": 84,
+                "crtpow": 0
+            },
+            // {
+            //     "id": 6061, // Level.Grade.Ascend
+            //     "level": 60,
+            //     "grade": 6,
+            //     "ascend": 1,
+            //     "hp": ,
+            //     "atk": ,
+            //     "pdef": ,
+            //     "mdef": ,
+            //     "atkspd": 106,
+            //     "acc": 0,
+            //     "eva": 11,
+            //     "crt": 84,
+            //     "crtpow": 0
+            // }
+        ],
+        "skills":{
+            "normal": {
+                "skill_name": "Heroic Blow",
+                "damage_formula": "x + y.ATK",
+                "damage_type": "pdmg",
+                "effects": [],
+                "target": "FrontFirst",
+                "gem": [],
+                "gem_effect": []
+            }
+        },
+        "passive":[
+            {
+                "effects": []
+            }
+        ]
+
+    }
+]
