@@ -92,12 +92,12 @@
                 "skill_name": "Fierce Cry",
                 "soul_cost": 4,
                 "damage_variables": [ 
-                    [ ],
-                    [ ],
-                    [ ],
-                    [ ],
-                    [ ],
-                    [ ]
+                    [ 130,0.85 ],
+                    [ 350,0.85 ],
+                    [ 890,0.85 ],
+                    [ 890,0.97 ],
+                    [ 890,1.21 ],
+                    [ 890,1.21 ]
                 ],
                 "damage_formula": "dv[level][0] + dv[level][1]*atk",
                 "damage_type": "pdmg",
@@ -109,11 +109,18 @@
                         "turns": 2
                     },
                     {
-                        "status": "Increase CRT rate of this attack by 20%",
+                        "status": "Increase CRT rate of this attack by 'xxx' %",
                         "effect_type": "",
                         "chance": null,
                         "turns": null,
-                        "value": 0.2,
+                        "value": [
+                            0.2,
+                            0.2,
+                            0.2,
+                            0.2,
+                            0.2,
+                            0.4
+                        ],
                         "conditions":[
                             "Enemies HP lower than 50%"
                         ]                        
@@ -127,6 +134,24 @@
                     "turns": 1
                 }
             },
+            "ultimate": {
+                "skill_name": "Extinction Strike",
+                "soul_cost": 6,
+                "damage_variables": [ 
+                    [ ],
+                    [ ],
+                    [ ],
+                    [ ],
+                    [ ],
+                    [ ]
+                ],
+                "damage_formula": "dv[level][0] + dv[level][1]*atk",
+                "damage_type": "pdmg",
+                "effects": [],
+                "target": "All Enemies",
+                "gem": [],
+                "gem_effect": []
+            },            
             "template": {
                 "skill_name": "Fierce Cry",
                 "soul_cost": 4,
