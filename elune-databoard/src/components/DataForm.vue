@@ -26,9 +26,6 @@
           <v-text-field v-model="userdata.eva" label="EVA">{{ userdata.eva }}</v-text-field>
           <v-text-field v-model="userdata.crt" label="CRT">{{ userdata.crt }}</v-text-field>
           <v-text-field v-model="userdata.crtpow" label="CRT POW">{{ userdata.crtpow }}</v-text-field>
-          
-          
-
         </v-form>
         <v-btn v-on:click="submit">Console Log Results</v-btn>
         {{ computedDamage }}
@@ -38,6 +35,8 @@
 </template>
 
 <script>
+const fs = require("fs");
+
 export default {
   data: () => ({
     userdata: {},
@@ -201,6 +200,16 @@ export default {
   methods: {
     submit() {
       console.log(this.userdata);
+      this.saveJSON();
+    },
+    saveJSON() {
+      const data = JSON.stringify(this.userdata);
+      const fs = require("fs");
+      try {
+        fs.writeFileSync("C:\Users\USER\Documents\GitHub\NEWTEST.JSON", data, "utf-8");
+      } catch (e) {
+        alert("Failed to save the file !");
+      }
     }
   },
   computed: {
