@@ -4,9 +4,18 @@
       <v-flex>
         <h1>Data entry</h1>
         <v-form>
-          <v-text-field></v-text-field>
-          <v-autocomplete label="Grade" :items="grade">{{ }}</v-autocomplete>
+          <v-text-field  v-model="userdata.name"> 
+              {{ userdata.name }} 
+          </v-text-field>
+          <v-autocomplete label="Grade" :items="grade" v-model="userdata.grade">
+              {{ userdata.grade }}
+          </v-autocomplete>
         </v-form>
+        <v-btn 
+            v-on:click="submit"
+        >
+            Console Log Results
+        </v-btn>
         {{ computedDamage }}
       </v-flex>
     </v-layout>
@@ -16,6 +25,10 @@
 <script>
 export default {
   data: () => ({
+    userdata: {
+        name: "",
+        grade: ""
+    },  
     name: "",
     grade: ["Legendary", "Epic", "Rare", "Uncommon", "Normal"],
     elune_class: ["Tank", "DPS", "Healer", "Support", "Debuffer"],
@@ -173,6 +186,12 @@ export default {
       }
     }
   }),
+  methods: {
+      submit(){
+          console.log(this.userdata);
+          
+      }
+  },
   computed: {
     computedDamage(){
         return this.skill.damage_variables.fixed + this.skill.damage_variables.MultiplyByAtk * this.stats.atk;
