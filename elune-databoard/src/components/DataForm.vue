@@ -2,20 +2,35 @@
   <v-container>
     <v-layout text-center wrap>
       <v-flex>
-        <h1>Data entry</h1>
+        <h1>Elune Data Entry Form</h1>
         <v-form>
-          <v-text-field  v-model="userdata.name"> 
-              {{ userdata.name }} 
-          </v-text-field>
-          <v-autocomplete label="Grade" :items="grade" v-model="userdata.grade">
-              {{ userdata.grade }}
-          </v-autocomplete>
+          <v-text-field v-model="userdata.name" label="Elune Name">{{ userdata.name }}</v-text-field>
+          <v-autocomplete label="Grade" :items="grade" v-model="userdata.grade">{{ userdata.grade }}</v-autocomplete>
+          <v-autocomplete
+            label="Class"
+            :items="elune_class"
+            v-model="userdata.elune_class"
+          >{{ userdata.elune_class }}</v-autocomplete>
+          <v-text-field v-model="userdata.stars" label="Stars">{{ userdata.stars }}</v-text-field>
+          <v-text-field v-model="userdata.ascend" label="Ascend">{{ userdata.ascend }}</v-text-field>
+          <v-text-field v-model="userdata.level" label="Level">{{ userdata.level }}</v-text-field>
+
+          <h1>Stats</h1>
+
+          <v-text-field v-model="userdata.hp" label="HP">{{ userdata.hp }}</v-text-field>
+          <v-text-field v-model="userdata.atk" label="Attack">{{ userdata.atk }}</v-text-field>
+          <v-text-field v-model="userdata.pdef" label="P.DEF">{{ userdata.pdef }}</v-text-field>
+          <v-text-field v-model="userdata.mdef" label="M.DEF">{{ userdata.mdef }}</v-text-field>
+          <v-text-field v-model="userdata.atkspd" label="ATK SPD">{{ userdata.atkspd }}</v-text-field>
+          <v-text-field v-model="userdata.acc" label="ACC">{{ userdata.acc }}</v-text-field>
+          <v-text-field v-model="userdata.eva" label="EVA">{{ userdata.eva }}</v-text-field>
+          <v-text-field v-model="userdata.crt" label="CRT">{{ userdata.crt }}</v-text-field>
+          <v-text-field v-model="userdata.crtpow" label="CRT POW">{{ userdata.crtpow }}</v-text-field>
+          
+          
+
         </v-form>
-        <v-btn 
-            v-on:click="submit"
-        >
-            Console Log Results
-        </v-btn>
+        <v-btn v-on:click="submit">Console Log Results</v-btn>
         {{ computedDamage }}
       </v-flex>
     </v-layout>
@@ -25,10 +40,7 @@
 <script>
 export default {
   data: () => ({
-    userdata: {
-        name: "",
-        grade: ""
-    },  
+    userdata: {},
     name: "",
     grade: ["Legendary", "Epic", "Rare", "Uncommon", "Normal"],
     elune_class: ["Tank", "DPS", "Healer", "Support", "Debuffer"],
@@ -46,7 +58,7 @@ export default {
       crt: 0,
       crtpow: 0
     },
-    skill: { 
+    skill: {
       type: ["Normal", "Special", "Ultimate"],
       soul_cost: [0, 4, 6],
       targets: ["Front first", "All enemies"],
@@ -187,15 +199,17 @@ export default {
     }
   }),
   methods: {
-      submit(){
-          console.log(this.userdata);
-          
-      }
+    submit() {
+      console.log(this.userdata);
+    }
   },
   computed: {
-    computedDamage(){
-        return this.skill.damage_variables.fixed + this.skill.damage_variables.MultiplyByAtk * this.stats.atk;
-    } 
+    computedDamage() {
+      return (
+        this.skill.damage_variables.fixed +
+        this.skill.damage_variables.MultiplyByAtk * this.stats.atk
+      );
+    }
   }
 };
 </script>
